@@ -18,4 +18,11 @@ public class CabInvoiceGenerator {
         }
         return aggregate;
     }
+
+    public static Invoice generateInvoice(List<Ride> rideList) {
+        double aggregate = calculateTotalFare(rideList);
+        int rides = rideList.size();
+        double average = aggregate / rides;
+        return new Invoice(rides, aggregate, average);
+    }
 }
